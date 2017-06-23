@@ -1,29 +1,29 @@
 <nav class="nav has-shadow">
     <div class="container">
         <div class="nav-left">
-        <a class="nav-item" [routerLink]="['']"><img src="/assets/images/l.png" alt="PWA Yo"></a>
-        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['']">Home</a>
-        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['team']">Teams</a>
-        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['schedule']">Schedule</a>
+            <a class="nav-item" [routerLink]="['']"><img src="/assets/images/l.png" alt="PWA Yo"></a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['']">Home</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['team']">Teams</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['schedule']">Schedule</a>
         </div>
-        <span class="nav-toggle">
+        <span class="nav-toggle" (click)="menuToggle = !menuToggle" [ngClass]="{'is-active': menuToggle}">
             <span></span>
             <span></span>
             <span></span>
         </span>
-        <div class="nav-right nav-menu">
-        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['']">Home</a>
-        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
-        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
+        <div class="nav-right nav-menu" [ngClass]="{'is-active': menuToggle}">
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['']">Home</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
 
-        <a class="nav-item is-tab" *ngIf="(isLoggedIn|async)">
-            <figure class="image is-16x16" style="margin-right: 8px;">
-            <img src="{{(currentUser()|async).avatar}}" alt="{{(currentUser()|async).displayName}}">
-            </figure>
-            {{(currentUser()|async).email}}
-        </a>
-        <a *ngIf="!(isLoggedIn|async)" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['login']">Login</a>
-        <a *ngIf="(isLoggedIn|async)" class="nav-item is-tab" (click)="logout()" href="#">Log out</a>
+            <a class="nav-item is-tab" *ngIf="(isLoggedIn|async)">
+                <figure class="image is-16x16" style="margin-right: 8px;">
+                <img src="{{(currentUser()|async).avatar}}" alt="{{(currentUser()|async).displayName}}">
+                </figure>
+                {{(currentUser()|async).email}}
+            </a>
+            <a *ngIf="!(isLoggedIn|async)" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['login']">Login</a>
+            <a *ngIf="(isLoggedIn|async)" class="nav-item is-tab" (click)="logout()" href="#">Log out</a>
         </div>
     </div>
 </nav>

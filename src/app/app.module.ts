@@ -20,6 +20,7 @@ import {LoginPageComponent} from "./pages/login-page.component";
 import { LoggedInGuard } from "app/shared/logged-in-guard";
 import { DashboardPageComponent } from './pages/dashboard-page.component';
 import { TeamComponent } from './team/team.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
@@ -28,7 +29,9 @@ const routes: Routes = [
     { path: 'login', component: LoginPageComponent },
     { path: 'dashboard', component: DashboardPageComponent, canActivate: [LoggedInGuard] },
     { path: '', component: HomePageComponent },
-    { path: 'team', component: TeamComponent }
+    { path: 'team', component: TeamComponent },
+    { path: '404', component: ErrorComponent },
+    { path: '**', redirectTo: '/404' }
 ];
 
 @NgModule({
@@ -43,7 +46,8 @@ const routes: Routes = [
         AllInOnePageComponent,
         LoginPageComponent,
         DashboardPageComponent,
-        TeamComponent
+        TeamComponent,
+        ErrorComponent
     ],
     imports: [
         BrowserModule,

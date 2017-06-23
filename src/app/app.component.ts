@@ -13,6 +13,7 @@ export class AppComponent {
     private alertType = null;
     private alertMessage = "";
     public isLoggedIn = new BehaviorSubject<boolean>(false);
+    public menuToggle:boolean = false
 
     constructor(private authService: AuthService, private router: Router) {
         this.authService.isLoggedIn().subscribe(this.isLoggedIn);

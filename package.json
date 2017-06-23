@@ -8,7 +8,9 @@
     "lint": "tslint \"src/**/*.ts\"",
     "test": "ng test",
     "pree2e": "webdriver-manager update",
-    "e2e": "protractor"
+    "e2e": "protractor",
+    "precache": "sw-precache --verbose --config=sw-precache-config.js",
+    "static-serve": "cd dist && live-server --port=4201 --host=localhost --entry-file=/index.html"
   },
   "private": true,
   "dependencies": {
@@ -24,11 +26,10 @@
     "@angular/router": "4.2.4",
     "angular2-notifications": "^0.7.4",
     "angularfire2": "4.0.0-rc.1",
-    "bootstrap": "3.3.7",
     "core-js": "2.4.1",
     "firebase": "4.0.0",
-    "ngx-bootstrap": "1.7.1",
     "rxjs": "5.4.1",
+    "sw-toolbox": "^3.6.0",
     "ts-helpers": "1.1.2",
     "ts-md5": "^1.2.0",
     "zone.js": "0.8.12"
@@ -48,6 +49,7 @@
     "karma-jasmine": "1.1.0",
     "karma-jasmine-html-reporter": "0.2.2",
     "protractor": "5.1.0",
+    "sw-precache": "^5.2.0",
     "ts-node": "3.0.2",
     "tslint": "4.5.0",
     "typescript": "~2.3.2"
