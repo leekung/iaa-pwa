@@ -1,20 +1,44 @@
-<div class="row">
-    <div class="col-md-6 col-md-offset-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">User Information</div>
-            <ul class="list-group" *ngIf="currentUser() | async as user">
-                <li class="list-group-item">Email: {{user.email}}</li>
-                <li class="list-group-item">Display Name: {{user.displayName}}</li>
-                <li class="list-group-item">Uid: {{user.uid}}</li>
-                <li class="list-group-item">Provider Id: {{user.providerId}}</li>
-                <li class="list-group-item" *ngIf="user.photoURL"><img
-                        [src]="user.photoURL"/></li>
-            </ul>
-        </div>
+<div class="columns is-mobile min-320">
+  <div class="column">
+    <div class="box">
+        <h3 class="subtitle is-bold">User Information</h3>
+        <form novalidate class="narrow-form" *ngIf="currentUser() | async as user">
+
+            <div class="field is-horizontal">
+                <label class="label">Email</label>
+                <p class="control padding-20">
+                    {{user.email}}
+                </p>
+            </div>
+            <div class="field is-horizontal">
+                <label class="label">Display Name</label>
+                <p class="control padding-20">
+                    {{user.displayName}}
+                </p>
+            </div>
+            <div class="field is-horizontal">
+                <label class="label">Uid</label>
+                <p class="control padding-20">
+                    {{user.uid}}
+                </p>
+            </div>
+            <div class="field is-horizontal">
+                <label class="label">Avatar</label>
+                <p class="control padding-20">
+                    <figure class="image is-128x128" *ngIf="user.avatar != null">
+                        <img src="{{user.avatar}}">
+                    </figure>
+                    <input type="file" class="control" name="file" id="file">
+                </p>
+            </div>
+            <div class="field is-horizontal">
+                <label class="label"></label>
+                <p class="control padding-20">
+                    <button (click)="upload()" type="button" class="button is-primary" [ngClass]="{'is-loading': loading}">Upload</button>
+                </p>
+            </div>
+            
+        </form>
     </div>
-</div>
-<div class="row">
-    <div class="col-md-3 col-md-offset-5">
-        <a href="#" class="btn btn-lg btn-primary btn-block" (click)="logout()">Log out</a>
-    </div>
+  </div>
 </div>

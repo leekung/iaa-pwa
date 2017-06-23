@@ -28,10 +28,14 @@ export class LoginUserComponent {
             this.authService.login(this.email.value, this.password.value)
                 .subscribe(
                     () => {
+                        alert("Login Success");
                         this.onSuccess.emit();
                         this.form.reset();
                     },
-                    (err) => this.onError.emit(err)
+                    (err) => {
+                        alert(err.message);
+                        this.onError.emit(err)
+                    }
                 );
         }
     }
@@ -39,8 +43,13 @@ export class LoginUserComponent {
     loginVia($event, provider: string) {
         $event.preventDefault();
         this.authService.loginViaProvider(provider).subscribe(
-            () => this.onSuccess.emit(),
-            err => this.onError.emit(err)
+            () => {
+                this.onSuccess.emit()
+            },
+            err => {
+                alert(err.message);
+                this.onError.emit(err)
+            }
         );
     }
 }

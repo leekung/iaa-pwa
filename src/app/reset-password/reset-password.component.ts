@@ -25,10 +25,14 @@ export class ResetPasswordComponent {
             this.authService.sendPasswordResetEmail(this.email.value)
                 .subscribe(
                     () => {
+                        alert("Please check your email to reset password");
                         this.onSuccess.emit();
                         this.form.reset();
                     },
-                    err => this.onError.emit(err)
+                    err => {
+                        alert(err.message);
+                        this.onError.emit(err)
+                    }
                 );
 
         }

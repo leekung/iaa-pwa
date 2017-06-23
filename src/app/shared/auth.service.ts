@@ -5,6 +5,7 @@ import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {UserInfo} from "./user-info";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
 import {Md5} from 'ts-md5/dist/md5';
+import {firebaseConfig} from "environments/firebaseConfig";
 
 @Injectable()
 export class AuthService {
@@ -19,8 +20,11 @@ export class AuthService {
 
     userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
     private user: firebase.User;
+    private firebasestorage: firebase.app.App;
 
     constructor(private angularFireAuth: AngularFireAuth) {
+        this.firebasestorage = firebase.initializeApp(firebaseConfig, "PWA-Auth")
+
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("user: ", JSON.stringify(user));
             this.user = user;
@@ -33,6 +37,13 @@ export class AuthService {
                 userInfo.providerId = user.providerId;
                 userInfo.photoURL = user.photoURL;
                 userInfo.uid = user.uid;
+                // get avatar from DB
+
+                var starCountRef = this.firebasestorage.database().ref("users/" + user.uid);
+                starCountRef.on('value', function(snapshot) {
+                    userInfo.avatar = snapshot.val().avatar
+                });
+
             } else {
                 this.user = null;
                 userInfo.isAnonymous = true;

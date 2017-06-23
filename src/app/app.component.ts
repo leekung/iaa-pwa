@@ -10,8 +10,8 @@ import {UserInfo} from "app/shared/user-info";
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    private alertType = null;
-    private alertMessage = "";
+    public alertType = null;
+    public alertMessage = "";
     public isLoggedIn = new BehaviorSubject<boolean>(false);
     public menuToggle:boolean = false
 
