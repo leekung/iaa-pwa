@@ -1,29 +1,38 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" [routerLink]="['']">PWA-Yeh</a>
+<nav class="nav has-shadow">
+    <div class="container">
+        <div class="nav-left">
+        <a class="nav-item" [routerLink]="['']"><img src="/assets/images/l.png" alt="PWA Yo"></a>
+        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['']">Home</a>
+        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['team']">Teams</a>
+        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['schedule']">Schedule</a>
         </div>
+        <span class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </span>
+        <div class="nav-right nav-menu">
+        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['']">Home</a>
+        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
+        <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['']">Home</a></li>
-                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['dashboard']" *ngIf="(isLoggedIn|async)">Dashboard</a></li>
-                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"><a
-                        [routerLink]="['all-in-one']" *ngIf="!(isLoggedIn|async)">All In One</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li *ngIf="(isLoggedIn|async)" class="navbar-text">{{(currentUser()|async).email}}</li>
-                <li routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" *ngIf="!(isLoggedIn|async)"><a
-                        [routerLink]="['login']">Login</a></li>
-                <li *ngIf="(isLoggedIn|async)"><a (click)="logout()" href="#">Logout</a></li>
-            </ul>
-        </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
+        <a class="nav-item is-tab" *ngIf="(isLoggedIn|async)">
+            <figure class="image is-16x16" style="margin-right: 8px;">
+            <img src="{{(currentUser()|async).avatar}}" alt="{{(currentUser()|async).displayName}}">
+            </figure>
+            {{(currentUser()|async).email}}
+        </a>
+        <a *ngIf="!(isLoggedIn|async)" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['login']">Login</a>
+        <a *ngIf="(isLoggedIn|async)" class="nav-item is-tab" (click)="logout()" href="#">Log out</a>
+        </div>
+    </div>
 </nav>
 
-
 <div class="container">
+    <div class="box">
+        <h1 class="title">
+            คอนเฟเดอเรชันส์คัพ 2017 <span class="inline">(Confederations Cup 2017)</span>
+        </h1>
+    </div>
     <router-outlet></router-outlet>
 </div>

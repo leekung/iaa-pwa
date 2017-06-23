@@ -4,12 +4,14 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {UserInfo} from "./user-info";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
+import {Md5} from 'ts-md5/dist/md5';
 
 @Injectable()
 export class AuthService {
     static UNKNOWN_USER = {
         isAnonymous: true,
         email: null,
+        avatar: null,
         displayName: null,
         providerId: null,
         uid: null
@@ -24,9 +26,9 @@ export class AuthService {
             this.user = user;
             let userInfo = new UserInfo();
             if (user != null) {
-
                 userInfo.isAnonymous = user.isAnonymous;
                 userInfo.email = user.email;
+                userInfo.avatar = "https://www.gravatar.com/avatar/" + Md5.hashStr(user.email);
                 userInfo.displayName = user.displayName;
                 userInfo.providerId = user.providerId;
                 userInfo.photoURL = user.photoURL;

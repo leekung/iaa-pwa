@@ -11,7 +11,6 @@ import {AuthService} from "app/shared/auth.service";
 import {LoginUserComponent} from "app/login-user/login-user.component";
 import {DisplayUserComponent} from "app/display-user/display-user.component";
 import {RegisterUserComponent} from "app/register-user/register-user.component";
-import {AlertModule} from "ng2-bootstrap";
 import {ResetPasswordComponent} from "./reset-password/reset-password.component";
 import {Routes, RouterModule} from "@angular/router";
 import {HomePageComponent} from "./pages/home-page.component";
@@ -20,6 +19,7 @@ import {AllInOnePageComponent} from "./pages/all-in-one-page.component";
 import {LoginPageComponent} from "./pages/login-page.component";
 import { LoggedInGuard } from "app/shared/logged-in-guard";
 import { DashboardPageComponent } from './pages/dashboard-page.component';
+import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
@@ -27,7 +27,8 @@ const routes: Routes = [
     { path: 'reset-password', component: ResetPasswordComponent },
     { path: 'login', component: LoginPageComponent },
     { path: 'dashboard', component: DashboardPageComponent, canActivate: [LoggedInGuard] },
-    { path: '', component: HomePageComponent }
+    { path: '', component: HomePageComponent },
+    { path: 'team', component: TeamComponent }
 ];
 
 @NgModule({
@@ -41,14 +42,14 @@ const routes: Routes = [
         RegisterPageComponent,
         AllInOnePageComponent,
         LoginPageComponent,
-        DashboardPageComponent
+        DashboardPageComponent,
+        TeamComponent
     ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
-        AlertModule.forRoot(),
         AngularFireModule.initializeApp(firebaseConfig, "PWA-Yeh"),
         AngularFireDatabaseModule,
         AngularFireAuthModule,

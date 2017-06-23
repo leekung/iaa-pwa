@@ -10,6 +10,7 @@ import { UserInfo } from "app/shared/user-info";
     styleUrls: ['./home-page.component.css']
 })
 export class HomePageComponent {
+    public title: string
     userInfo: Observable<UserInfo>;
     isLoggedIn = new BehaviorSubject(false);
 

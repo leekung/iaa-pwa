@@ -4,7 +4,6 @@ import {TestBed, async} from "@angular/core/testing";
 import {AppComponent} from "./app.component";
 import {AuthService} from "app/shared/auth.service";
 import {AuthServiceStub} from "app/shared/auth.service.stub";
-import {AlertModule} from "ng2-bootstrap";
 
 describe('AppComponent', () => {
     beforeEach(() => {
@@ -16,7 +15,6 @@ describe('AppComponent', () => {
             ],
             schemas: [CUSTOM_ELEMENTS_SCHEMA],
             imports: [
-                AlertModule.forRoot()
             ],
             providers: [
                 {provide: AuthService, useValue: authServiceStub}

@@ -8,7 +8,8 @@ import {AuthService} from "app/shared/auth.service";
     styleUrls: ['./all-in-one-page.component.css']
 })
 export class AllInOnePageComponent {
-    private isLoggedIn = new BehaviorSubject<boolean>(false);
+    public title: string
+    public isLoggedIn = new BehaviorSubject<boolean>(false);
 
     constructor(private authService: AuthService) {
         this.authService.isLoggedIn().subscribe(this.isLoggedIn);

@@ -1,0 +1,35 @@
+<div class="box">
+  <h3 class="subtitle">
+    Group A
+  </h3>
+  <div class="card-content" *ngFor="let team of tournaments.groups[0].teams">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image">
+          <img data-src="/assets/flags/{{ team.flag }}" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="subtitle is-4">{{ team.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box">
+  <h3 class="subtitle">
+    Group B
+  </h3>
+  <div class="card-content" *ngFor="let team of tournaments.groups[1].teams">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image">
+          <img data-src="/assets/flags/{{ team.flag }}" alt="Image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="subtitle is-4">{{ team.name }}</p>
+      </div>
+    </div>
+  </div>
+</div>
