@@ -11,20 +11,7 @@
 .fab__image.is-active {
     opacity: 0.5;
 }
-@media (max-width: 736px) {
-    .inline {
-        display:block;
-    }
-    img.i-4-flag.flag {
-        max-width: 30px;
 
-    }
-}
-@media (max-width: 414px) {
-    .title {
-        font-size: 1.5rem;
-    }
-}
 .tbl-teamname.teamname-link, .tbl-teamname.teamname-nolink, .tbl-expand, .qlink-wrap {
     display:none !important;
 }
@@ -68,4 +55,226 @@ caption.caption-nolink {
 }
 abbr[title] {
     text-decoration: none;
+}
+
+
+
+
+.csc .match-list-date {
+    margin: 10px;
+}
+.tbl-teamname.teamname-link, .tbl-teamname.teamname-nolink {
+    display:none !important;
+}
+.csc .t-nText,.csc .time-converter {
+    display:none;
+}
+.csc .match-list .match-list-date, .csc .match-list .match-list-game {
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.csc .match-list .match-list-date h3, .csc .match-list .match-list-game h3 {
+    color: #474747;
+    font-size: 21px;
+    line-height: 50px;
+    height: 50px;
+    padding-left: 10px;
+}
+.csc .match-list .match-list-date h3 .h3-wrap, .csc .match-list .match-list-game h3 .h3-wrap {
+    width: 988px;
+    height: 50px;
+    display: table-cell;
+    border-bottom: solid 1px #474747;
+}
+.csc .col-xs-12 {
+    width: 100%;
+    max-width:100%;
+    clear: both;
+}
+.csc .mu {
+    position: relative;
+    border-bottom: 1px solid #dcdcdc;
+    font-size: 12px;
+    line-height: 19px;
+    overflow: hidden;
+}
+.csc .mu:before, .csc .mu:after {
+    content: " ";
+    display: table;
+}
+.csc .col-xs-12 .mu .mu-m-link {
+    display:none;
+}
+.csc .mu>a {
+    display: block;
+    color: #666;
+    text-decoration: none;
+}
+.csc .col-xs-12 .mu .mu-i {
+    width: 232px;
+    margin-right: 20px;
+    min-height: 80px;
+}
+.csc .mu .mu-i {
+    text-align: left;
+    float: left;
+}
+.csc .col-xs-12 .mu .mu-day {
+    display: none !important;
+    visibility: hidden !important;
+}
+.csc .col-xs-12 .mu .mu-m {
+    margin-left: 272px;
+}
+.csc .mu .mu-m {
+    position: relative;
+}
+.csc .mu .mu-m .t {
+    width: 42%;
+}
+.csc .t.home {
+    left: 0;
+}
+.csc .col-xs-12 .t {
+    height: 80px;
+}
+.csc .t.home .t-i, .csc .t.home .c-i {
+    left: 0;
+}
+.csc .t .t-i {
+    text-align: center;
+}
+.csc .t .t-n, .csc .t .t-i {
+    position: absolute;
+}
+.csc .t .t-n .t-nText, .csc .t .t-i .t-nText, .csc .t .t-n .t-i-wrap, .csc .t .t-i .t-i-wrap, .csc .t .t-n .t-nTri, .csc .t .t-i .t-nTri {
+    display: table-cell;
+    vertical-align: middle;
+    font-size: 27px;
+    line-height: 27px;
+    height: 80px;
+}
+.csc .i-4-flag {
+    width: 48px;
+    height: 32px;
+}
+.csc .flag {
+    border: 1px solid #c7c6c6;
+}
+.csc .col-xs-12 .t .t-i+.t-n, .csc .col-xs-12 .t.home .t-i+.t-n {
+    margin-left: 63px;
+}
+.csc .t.home .t-n {
+    left: 0;
+    text-align: left;
+}
+.csc .t .t-n .t-nText, .csc .t .t-i .t-nText {
+    color: #474747;
+    text-transform: uppercase;
+}
+.csc .col-xs-12 .t-n .t-nText {
+    font-size: 27px;
+    line-height: 27px;
+    height: 80px;
+    display:none;
+}
+.csc .t {
+    position: absolute;
+    z-index: 1;
+}
+.t.away {
+    right: 0;
+}
+.csc .t.away .t-i, .t.away .c-i {
+    right: 0;
+}
+.csc .col-xs-12 .mu .mu-m .mu-reasonwin {
+    display:none;
+    font-size: 11px;
+    line-height: 18px;
+}
+.csc .mu .mu-m>.mu-reasonwin {
+    text-align: center;
+}
+.csc .s {
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+}
+.csc .col-xs-12 .s .s-status {
+    font-size: 11px;
+    line-height: 26px;
+    text-transform: uppercase;
+    min-height: 26px;
+}
+.csc .col-xs-12 .s .s-status-abbr {
+    display: none !important;
+    visibility: hidden !important;
+}
+.csc .col-xs-12 .s .s-score.s-date-HHmm {
+    font-size: 27px;
+    line-height: 26px;
+}
+.csc .mu>a .s-score {
+    color: #0087e6;
+}
+.csc .col-xs-12 .mu .mu-m .mu-reasonwin-abbr {
+    display: none !important;
+    visibility: hidden !important;
+}
+.csc .t.away .t-n {
+    right: 0;
+    text-align: right;
+}
+.csc .col-xs-12 .t.away .t-i+.t-n {
+    margin-right: 63px;
+    margin-left: 0;
+}
+.csc .mu .mu-m>.mu-liveblogstatus {
+    display: none;
+}
+@media (max-width: 736px) {
+    .inline {
+        display:block;
+    }
+    img.i-4-flag.flag {
+        max-width: 30px;
+        height:auto;
+
+    }
+    .col-xs-12 .mu .mu-m {
+        margin-left: 0;
+        margin-bottom:20px
+    }
+    .mu .mu-i {
+        float: none;
+    }
+    .col-xs-12 .mu .mu-i {
+        width:auto;
+    }
+}
+@media (max-width: 520px) {
+    .t .t-n .t-nTri {
+        font-size: 20px;
+    }
+    .col-xs-12 .t.away .t-i+.t-n {
+        margin-right: 45px;
+    }
+    .col-xs-12 .t .t-i+.t-n, .col-xs-12 .t.home .t-i+.t-n {
+        margin-left: 45px;
+    }
+}
+
+@media (max-width: 414px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}
+@media (max-width: 375px) {
+    .col-xs-12 .s .s-score.s-date-HHmm {
+        font-size: 16px;
+    }
+    .t .t-n .t-nTri {
+        font-size: 16px;
+    }
 }

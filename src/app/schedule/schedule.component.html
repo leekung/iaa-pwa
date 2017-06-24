@@ -1,8 +1,4 @@
-<div class="columns">
-  <div class="column" [innerHTML]="groupATable">
-    
-  </div>
-  <div class="column" [innerHTML]="groupBTable">
-
+<div class="columns csc" *ngFor="let row of htmlArray">
+  <div class="column" [innerHTML]="row">
   </div>
 </div>

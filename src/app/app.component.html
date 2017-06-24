@@ -16,18 +16,18 @@
             <span></span>
         </span>
         <div class="nav-right nav-menu" [ngClass]="{'is-active': menuToggle}">
-            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['']">Home</a>
-            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
-            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['rank']">Ranking</a>
-            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="menuToggle = !menuToggle" class="nav-item is-tab is-hidden-tablet" [routerLink]="['']">Home</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="menuToggle = !menuToggle" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="menuToggle = !menuToggle" class="nav-item is-tab is-hidden-tablet" [routerLink]="['rank']">Ranking</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="menuToggle = !menuToggle" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
 
-            <a class="nav-item is-tab" *ngIf="(isLoggedIn|async)" [routerLink]="['me']">
+            <a class="nav-item is-tab" *ngIf="(isLoggedIn|async)" [routerLink]="['me']" (click)="menuToggle = !menuToggle">
                 <figure class="image is-16x16" style="margin-right: 8px;">
                 <img src="{{(currentUser()|async).avatar}}" alt="{{(currentUser()|async).displayName}}">
                 </figure>
                 {{(currentUser()|async).email}}
             </a>
-            <a *ngIf="!(isLoggedIn|async)" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab" [routerLink]="['login']">Login</a>
+            <a *ngIf="!(isLoggedIn|async)" routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab" [routerLink]="['login']" (click)="menuToggle = !menuToggle">Login</a>
             <a *ngIf="(isLoggedIn|async)" class="nav-item is-tab" (click)="logout()" href="#">Log out</a>
         </div>
     </div>
