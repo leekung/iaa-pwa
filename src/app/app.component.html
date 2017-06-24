@@ -1,7 +1,7 @@
 <nav class="nav has-shadow">
     <div class="container">
         <div class="nav-left">
-            <a class="nav-item" [routerLink]="['']"><img src="/assets/images/l.png" alt="PWA Yo"></a>
+            <a class="nav-item"><img src="/assets/images/l.png" alt="PWA Yo"></a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['']">Home</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['team']">Teams</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['schedule']">Schedule</a>
@@ -14,7 +14,7 @@
             <span></span>
             <span></span>
         </span>
-        <div class="nav-right nav-menu">
+        <div class="nav-right nav-menu" [ngClass]="{'is-active': menuToggle}">
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['']">Home</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
@@ -39,7 +39,3 @@
     </div>
     <router-outlet></router-outlet>
 </div>
-<div class="fix-noti fab__push" (click)="doSubscribe()">
-    <img class="fab__image" src="/assets/images/push-on.png" alt="Subscribe Notification" [ngClass]="{'is-active': isSubscribe}">
-</div>
-<p (click)="doPush()">Push</p>

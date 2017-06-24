@@ -22,7 +22,6 @@ import { DashboardPageComponent } from './pages/dashboard-page.component';
 import { TeamComponent } from './team/team.component';
 import { ErrorComponent } from './error/error.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { PushNotificationsModule } from 'angular2-notifications';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
@@ -61,8 +60,7 @@ const routes: Routes = [
         AngularFireModule.initializeApp(firebaseConfig, "PWA-Yeh"),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-        RouterModule.forRoot(routes),
-        PushNotificationsModule
+        RouterModule.forRoot(routes)
     ],
     providers: [AuthService, LoggedInGuard],
     bootstrap: [AppComponent]

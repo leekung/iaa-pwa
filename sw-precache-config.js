@@ -17,6 +17,8 @@ module.exports = {
   staticFileGlobs: [
     'dist/index.html',
     'dist/assets/**',
+    'dist/OneSignalSDKWorker.js',
+    'dist/OneSignalSDKUpdaterWorker.js',
     'dist/manifest.json',
     'dist/service-worker.js',
     'dist/**.svg',
