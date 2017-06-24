@@ -47,13 +47,13 @@ table {
 }
 .t-i {
     float: left;
-    margin-right: 1em;
+    margin-right: 0.5em;
 }
 .t-n {
     float: left;
 }
 .table.tbl-standings th {
-    min-width: 30px;
+    min-width: 25px;
 }
 caption.caption-nolink {
     text-align: left;
