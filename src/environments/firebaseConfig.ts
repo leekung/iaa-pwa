@@ -2,10 +2,10 @@
 
 export const firebaseConfig = {
     // Paste all this from the Firebase console...
-    apiKey: "AIzaSyAr3D93-2wFwX24ps9dpdsUYPt_WTO5OHk",
-    authDomain: "leekung-d70fa.firebaseapp.com",
-    databaseURL: "https://leekung-d70fa.firebaseio.com/",
-    storageBucket: "gs://leekung-d70fa.appspot.com/",
-    messagingSenderId: "199678915818"
+    apiKey: "AIzaSyAM_rp_Hhx7jHlju71H23hCS4gcz92014Q",
+    authDomain: "iaa-pwa.firebaseapp.com",
+    databaseURL: "https://iaa-pwa.firebaseio.com/",
+    storageBucket: "gs://iaa-pwa.appspot.com/",
+    messagingSenderId: "285925355177 "
 };
 
