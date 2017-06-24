@@ -4,6 +4,7 @@
             <a class="nav-item"><img src="/assets/images/l.png" alt="PWA Yo"></a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['']">Home</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['team']">Teams</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['rank']">Ranking</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['schedule']">Schedule</a>
         </div>
 
@@ -17,6 +18,7 @@
         <div class="nav-right nav-menu" [ngClass]="{'is-active': menuToggle}">
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['']">Home</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
+            <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['rank']">Ranking</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
 
             <a class="nav-item is-tab" *ngIf="(isLoggedIn|async)" [routerLink]="['me']">

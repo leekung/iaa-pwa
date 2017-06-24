@@ -71,6 +71,15 @@ module.exports = {
         name: 'articles-cache'
       }
     }
+  }, {
+    urlPattern: /https?:\/\/query\.yahooapis\.com/,
+    handler: 'networkFirst',
+    options: {
+      cache: {
+        maxEntries: 100,
+        name: 'schedule-cache'
+      }
+    }
   }]
 
 };

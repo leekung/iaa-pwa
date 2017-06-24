@@ -22,6 +22,8 @@ import { DashboardPageComponent } from './pages/dashboard-page.component';
 import { TeamComponent } from './team/team.component';
 import { ErrorComponent } from './error/error.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { RankComponent } from './rank/rank.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
@@ -32,6 +34,8 @@ const routes: Routes = [
     { path: 'dashboard', component: DashboardPageComponent, canActivate: [LoggedInGuard] },
     { path: '', component: HomePageComponent },
     { path: 'team', component: TeamComponent },
+    { path: 'rank', component: RankComponent },
+    { path: 'schedule', component: ScheduleComponent },
     { path: '404', component: ErrorComponent },
     { path: '**', redirectTo: '/404' }
 ];
@@ -49,7 +53,9 @@ const routes: Routes = [
         LoginPageComponent,
         DashboardPageComponent,
         TeamComponent,
-        ErrorComponent
+        ErrorComponent,
+        ScheduleComponent,
+        RankComponent
     ],
     imports: [
         BrowserModule,

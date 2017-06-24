@@ -15,9 +15,57 @@
     .inline {
         display:block;
     }
+    img.i-4-flag.flag {
+        max-width: 30px;
+
+    }
 }
 @media (max-width: 414px) {
     .title {
         font-size: 1.5rem;
     }
+}
+.tbl-teamname.teamname-link, .tbl-teamname.teamname-nolink, .tbl-expand, .qlink-wrap {
+    display:none !important;
+}
+.table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e5e5e5;
+}
+table {
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+.table th,.table td {
+    padding: 2px;
+}
+.table th.tbl-teamcode,.table td.tbl-teamcode {
+    padding-left: 10px;
+}
+.t-i {
+    float: left;
+    margin-right: 1em;
+}
+.t-n {
+    float: left;
+}
+.table.tbl-standings th {
+    min-width: 30px;
+}
+caption.caption-nolink {
+    text-align: left;
+    font-size: 1.3em;
+    padding-left: 0.5em;
+    border-bottom: 1px solid #168394;
+    background-color: #3273dc;
+    color: #fff;
+}
+.flag {
+    border: 1px solid #c7c6c6;
+}
+abbr[title] {
+    text-decoration: none;
 }
