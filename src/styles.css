@@ -1,3 +1,23 @@
 .image {
     overflow:hidden;
 }
+.fix-noti {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999999;
+    cursor: pointer;
+}
+.fab__image.is-active {
+    opacity: 0.5;
+}
+@media (max-width: 736px) {
+    .inline {
+        display:block;
+    }
+}
+@media (max-width: 414px) {
+    .title {
+        font-size: 1.5rem;
+    }
+}

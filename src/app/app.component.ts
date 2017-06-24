@@ -1,8 +1,9 @@
-import {Component} from "@angular/core";
-import {AuthService} from "app/shared/auth.service";
-import { Observable, BehaviorSubject } from "rxjs";
-import {Router} from "@angular/router";
-import {UserInfo} from "app/shared/user-info";
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import { PushNotificationsService } from 'angular2-notifications/dist';
+import { AuthService } from 'app/shared/auth.service';
+import { UserInfo } from 'app/shared/user-info';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
     selector: 'app-root',
@@ -13,10 +14,30 @@ export class AppComponent {
     public alertType = null;
     public alertMessage = "";
     public isLoggedIn = new BehaviorSubject<boolean>(false);
+    public isSubscribe = false;
     public menuToggle:boolean = false
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(private authService: AuthService, private router: Router,
+    private _pushNotifications: PushNotificationsService) {
         this.authService.isLoggedIn().subscribe(this.isLoggedIn);
+        this.isSubscribe = _pushNotifications.permission == "granted"
+    }
+
+    doSubscribe() {
+        if (!this.isSubscribe) {
+            this._pushNotifications.requestPermission()
+        }
+    }
+
+    doPush() {
+        this._pushNotifications.create('Test', {
+            body: 'something',
+            icon: "/assets/images/192.png",
+            vibrate: [1000]
+        }).subscribe(
+            res => console.log(res),
+            err => console.log(err)
+        )
     }
 
     currentUser(): Observable<UserInfo> {

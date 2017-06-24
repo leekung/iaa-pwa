@@ -39,3 +39,7 @@
     </div>
     <router-outlet></router-outlet>
 </div>
+<div class="fix-noti fab__push" (click)="doSubscribe()">
+    <img class="fab__image" src="/assets/images/push-on.png" alt="Subscribe Notification" [ngClass]="{'is-active': isSubscribe}">
+</div>
+<p (click)="doPush()">Push</p>

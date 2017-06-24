@@ -21,6 +21,7 @@ import { LoggedInGuard } from "app/shared/logged-in-guard";
 import { DashboardPageComponent } from './pages/dashboard-page.component';
 import { TeamComponent } from './team/team.component';
 import { ErrorComponent } from './error/error.component';
+import { PushNotificationsModule } from 'angular2-notifications';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
@@ -58,7 +59,8 @@ const routes: Routes = [
         AngularFireModule.initializeApp(firebaseConfig, "PWA-Yeh"),
         AngularFireDatabaseModule,
         AngularFireAuthModule,
-        RouterModule.forRoot(routes)
+        RouterModule.forRoot(routes),
+        PushNotificationsModule
     ],
     providers: [AuthService, LoggedInGuard],
     bootstrap: [AppComponent]

@@ -18,6 +18,7 @@ module.exports = {
     'dist/index.html',
     'dist/assets/**',
     'dist/manifest.json',
+    'dist/service-worker.js',
     'dist/**.svg',
     'dist/**.woff2',
     'dist/**.woff',
@@ -34,7 +35,7 @@ module.exports = {
 
   /* Whitelist includes all files except those that end in .html (for HTML imports) and
      ones with /data/ in the path (for dynamically-loaded data). */
-  navigateFallbackWhitelist: [/^(?!.*\.html$|\/data\/|\/__|\.json$)/],
+  navigateFallbackWhitelist: [/^(?!.*\.html$|\/data\/|\/__|\.json|\.js$)/],
 
   /* Runtime Caching for Dynamic Content
      https://github.com/GoogleChrome/sw-precache/blob/master/GettingStarted.md#runtime-caching-for-dynamic-content */
