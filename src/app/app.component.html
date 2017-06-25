@@ -6,6 +6,7 @@
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['team']">Teams</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['rank']">Ranking</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" class="nav-item is-tab is-hidden-mobile" [routerLink]="['schedule']">Schedule</a>
+            <a href="javascript:;" class="nav-item is-tab is-hidden-mobile" (click)="countdown()">Count Down</a>
         </div>
 
 
@@ -20,6 +21,7 @@
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="menuToggle = !menuToggle" class="nav-item is-tab is-hidden-tablet" [routerLink]="['team']">Teams</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="menuToggle = !menuToggle" class="nav-item is-tab is-hidden-tablet" [routerLink]="['rank']">Ranking</a>
             <a routerLinkActive="is-active" [routerLinkActiveOptions]="{exact: true}" (click)="menuToggle = !menuToggle" class="nav-item is-tab is-hidden-tablet" [routerLink]="['schedule']">Schedule</a>
+            <a href="javascript:;" class="nav-item is-tab is-hidden-tablet" (click)="countdown()">Count Down</a>
 
             <a class="nav-item is-tab" *ngIf="(isLoggedIn|async)" [routerLink]="['me']" (click)="menuToggle = !menuToggle">
                 <figure class="image is-16x16" style="margin-right: 8px;">

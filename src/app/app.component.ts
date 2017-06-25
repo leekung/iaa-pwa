@@ -4,6 +4,7 @@ import { AuthService } from 'app/shared/auth.service';
 import { UserInfo } from 'app/shared/user-info';
 import { BehaviorSubject, Observable } from 'rxjs';
 import * as firebase from 'firebase';
+import { CookieService } from 'ngx-cookie';
 
 @Component({
     selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent {
     public isLoggedIn = new BehaviorSubject<boolean>(false);
     public menuToggle:boolean = false
 
-    constructor(private authService: AuthService, private router: Router) {
+    constructor(private authService: AuthService, private router: Router, private _cookieService:CookieService) {
         this.authService.isLoggedIn().subscribe(this.isLoggedIn);
     }
 
@@ -30,6 +31,18 @@ export class AppComponent {
             }
         })
 
+    }
+
+    countdown() {
+        console.log(this.router.url)
+        this._cookieService.remove("countdown")
+        if (this.router.url == "/") {
+            this.router.navigateByUrl("/team")
+        }
+        this.menuToggle = false
+        setTimeout(() => {
+            this.router.navigateByUrl("/")
+        }, 10)
     }
 
     currentUser(): Observable<UserInfo> {

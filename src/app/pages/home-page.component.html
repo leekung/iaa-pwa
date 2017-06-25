@@ -1,8 +1,30 @@
-<div class="box">
-    คอนเฟเดอเรชันส์คัพ (Confederations Cup) เป็นการแข่งขันฟุตบอลที่จัดขึ้นทุกสี่ปีโดยฟีฟ่า เป็นการแข่งขันระหว่างทีมที่ชนะเลิศจากแต่ละภูมิภาคทั่วโลก
+
+
+<div class="">
+  <p>
+    <img src="/assets/images/2017-Confed-Cup.webp" alt="FIFA Confederations Cup 2017">
+  </p>
+  <p>
+คอนเฟเดอเรชันส์คัพ (Confederations Cup) เป็นการแข่งขันฟุตบอลที่จัดขึ้นทุกสี่ปีโดยฟีฟ่า เป็นการแข่งขันระหว่างทีมที่ชนะเลิศจากแต่ละภูมิภาคทั่วโลก
 (เอเชียนคัพ แอฟริกาคัพออฟเนชันส์ โกลด์คัพ โคปาอเมริกา โอเอฟซีเนชันส์คัพ และ ยูโร) พร้อมทั้งทีมที่ชนะฟุตบอลโลกครั้งล่าสุดและทีมเจ้าภาพในปีถัดไป ซึ่งจะมีทั้งหมด 8 ทีม
 โดยเริ่มแข่งขันครั้งแรกเมื่อปี พ.ศ. 2535 (ค.ศ. 1992) ในชื่อ คิงฟาฮัดคัพที่จัดขึ้นที่ซาอุดีอาระเบีย และในปี พ.ศ. 2540 ทางฟีฟ่าได้มาเป็นผู้จัดการการแข่งขันทั้งหมด
 ผู้ชนะครั้งล่าสุดคือทีมชาติบราซิล[1] โดยได้มีการจัดขึ้นก่อนฟุตบอลโลก 2014 ที่จัดขึ้นที่ประเทศบราซิล
 และในปี พ.ศ. 2560 ฟุตบอลคอนเฟเดอเรชันส์คัพจะจัดขึ้นที่ประเทศรัสเซีย ก่อนการแข่งขันฟุตบอลโลก 2018
+  </p>
 </div>
+<div class="modal is-active" *ngIf="countDown">
+  <div class="modal-background"></div>
+  <div class="modal-content">
+    <div class="message is-danger">
+      <div class="message-header title">
+        <count-down units="Days | Hours | Minutes | Seconds" end="{{countDownTo}}"></count-down>
 
+        <button class="delete" (click)="closeCountdown()"></button>
+      </div>
+      <div class="message-body subtitle">
+        <div [innerHTML]="teams"></div>
+      </div>
+    </div>
+    
+  </div>
+</div>
