@@ -29,6 +29,9 @@
                         <img [src]="user.photoURL">
                     </figure>
                     <input type="file" class="control" name="file" id="file">
+                    <ng2-webcam [options]="options" [onSuccess]="onSuccess" [onError]="onError"></ng2-webcam>
+                    <canvas></canvas>
+                    <button (click)="capture()" type="button" class="button is-primary" [ngClass]="{'is-loading': loading}">Capture</button>
                 </p>
             </div>
             <div class="field is-horizontal">

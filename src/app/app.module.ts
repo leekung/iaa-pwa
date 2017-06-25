@@ -26,6 +26,7 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { RankComponent } from './rank/rank.component';
 import {CountDown} from "angular2-simple-countdown/countdown";
 import { CookieModule } from 'ngx-cookie';
+import { WebCamComponent } from 'ng2-webcam';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
@@ -59,7 +60,8 @@ const routes: Routes = [
         ErrorComponent,
         ScheduleComponent,
         RankComponent,
-        CountDown
+        CountDown,
+        WebCamComponent
     ],
     imports: [
         BrowserModule,
