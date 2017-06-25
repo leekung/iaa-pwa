@@ -24,7 +24,6 @@ import { ErrorComponent } from './error/error.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { RankComponent } from './rank/rank.component';
-import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
@@ -57,8 +56,7 @@ const routes: Routes = [
         TeamComponent,
         ErrorComponent,
         ScheduleComponent,
-        RankComponent,
-        ChatComponent
+        RankComponent
     ],
     imports: [
         BrowserModule,
