@@ -23,10 +23,10 @@
                 </p>
             </div>
             <div class="field is-horizontal">
-                <label class="label">Avatar</label>
+                <label class="label">Photo</label>
                 <p class="control padding-20">
-                    <figure class="image is-128x128" *ngIf="user.avatar != null">
-                        <img src="{{user.avatar}}">
+                    <figure class="image is-128x128" *ngIf="user.photoURL">
+                        <img [src]="user.photoURL">
                     </figure>
                     <input type="file" class="control" name="file" id="file">
                 </p>

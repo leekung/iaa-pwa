@@ -1,6 +1,7 @@
 import {Injectable, Inject} from "@angular/core";
 import * as firebase from 'firebase/app';
 import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuthModule, AngularFireAuth } from 'angularfire2/auth';
 import {UserInfo} from "./user-info";
 import { Observable, Subject, BehaviorSubject } from "rxjs";
@@ -20,10 +21,8 @@ export class AuthService {
 
     userInfo = new BehaviorSubject<UserInfo>(AuthService.UNKNOWN_USER);
     private user: firebase.User;
-    private firebasestorage: firebase.app.App;
 
-    constructor(private angularFireAuth: AngularFireAuth) {
-        this.firebasestorage = firebase.initializeApp(firebaseConfig, "PWA-Auth")
+    constructor(private angularFireAuth: AngularFireAuth, db: AngularFireDatabase) {
 
         this.angularFireAuth.authState.subscribe(user => {
             // console.log("user: ", JSON.stringify(user));
@@ -32,17 +31,10 @@ export class AuthService {
             if (user != null) {
                 userInfo.isAnonymous = user.isAnonymous;
                 userInfo.email = user.email;
-                userInfo.avatar = "https://www.gravatar.com/avatar/" + Md5.hashStr(user.email);
                 userInfo.displayName = user.displayName;
                 userInfo.providerId = user.providerId;
                 userInfo.photoURL = user.photoURL;
                 userInfo.uid = user.uid;
-                // get avatar from DB
-
-                var starCountRef = this.firebasestorage.database().ref("users/" + user.uid);
-                starCountRef.on('value', function(snapshot) {
-                    userInfo.avatar = snapshot.val().avatar
-                });
 
             } else {
                 this.user = null;
@@ -77,10 +69,16 @@ export class AuthService {
         return this.userInfo.map(userInfo => !userInfo.isAnonymous);
     }
 
-    updateDisplayName(displayName: string): Observable<string> {
+    isGuest(): Observable<boolean> {
+        return this.userInfo.map(userInfo => userInfo.isAnonymous);
+    }
+
+    updateDisplayName(displayName: string, photoURL: string): Observable<string> {
         let result = new Subject<string>();
-        this.user.updateProfile({displayName: displayName, photoURL: null})
-            .then(() => {result.next("success")})
+        this.user.updateProfile({displayName: displayName, photoURL: photoURL})
+            .then(() => {
+                result.next("success")
+            })
             .catch(err => result.error(err));
         return result;
     }
@@ -88,14 +86,12 @@ export class AuthService {
     createUser(email: string, password: string, displayName: string): Observable<string> {
         let result = new Subject<string>();
         this.angularFireAuth.authState.subscribe(user => {
-            // console.log("Update: ", user);
             if (user != null) {
-                user.updateProfile({displayName: displayName, photoURL: null});
+                user.updateProfile({displayName: displayName, photoURL: "https://www.gravatar.com/avatar/" + Md5.hashStr(user.email)});
             }
         });
         this.angularFireAuth.auth.createUserWithEmailAndPassword(email, password)
-            .then(() => {
-                //auth.auth.updateProfile({displayName: displayName, photoURL: null});
+            .then((user) => {
                 result.next("success");
             })
             .catch(err => result.error(err));

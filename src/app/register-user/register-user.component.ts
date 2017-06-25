@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import {Component, OnInit, EventEmitter, Output} from "@angular/core";
 import {AuthService} from "app/shared/auth.service";
 import { Observable, BehaviorSubject } from "rxjs";
@@ -18,8 +19,7 @@ export class RegisterUserComponent {
     @Output() onSuccess = new EventEmitter();
     @Output() onError = new EventEmitter();
 
-    constructor(private authService: AuthService,
-                private fb: FormBuilder) {
+    constructor(private authService: AuthService, private fb: FormBuilder, private router: Router) {
         this.form = fb.group({
             'name': ['', Validators.required],
             'email': ['', Validators.compose([
@@ -42,6 +42,7 @@ export class RegisterUserComponent {
                     () => {
                         this.onSuccess.emit("success");
                         this.form.reset();
+                        document.location.href = '/me?t='+ (new Date().getTime())
                     },
                     err => this.onError.emit(err)
                 );

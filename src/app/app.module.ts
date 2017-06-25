@@ -24,12 +24,14 @@ import { ErrorComponent } from './error/error.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ScheduleComponent } from './schedule/schedule.component';
 import { RankComponent } from './rank/rank.component';
+import { ChatComponent } from './chat/chat.component';
 
 const routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
     { path: 'me', component: DisplayUserComponent },
     { path: 'all-in-one', component: AllInOnePageComponent },
     { path: 'reset-password', component: ResetPasswordComponent },
+    { path: 'register', component: RegisterPageComponent },
     { path: 'login', component: LoginPageComponent },
     { path: 'dashboard', component: DashboardPageComponent, canActivate: [LoggedInGuard] },
     { path: '', component: HomePageComponent },
@@ -55,7 +57,8 @@ const routes: Routes = [
         TeamComponent,
         ErrorComponent,
         ScheduleComponent,
-        RankComponent
+        RankComponent,
+        ChatComponent
     ],
     imports: [
         BrowserModule,
